@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package protons;
+
+service HenriqueVacations {
+    rpc WhenDoYouStartYourVacation(HenriqueMessage) returns (HenriqueMessage){}
+}
+
+message HenriqueMessage {
+    string msg = 1;
+}
