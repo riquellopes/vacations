@@ -5,6 +5,7 @@
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
+    "protoc-gen-go/descriptor",
     "ptypes",
     "ptypes/any",
     "ptypes/duration",
@@ -17,6 +18,7 @@
   branch = "master"
   name = "golang.org/x/net"
   packages = [
+    "context",
     "http/httpguts",
     "http2",
     "http2/hpack",
@@ -87,6 +89,8 @@
     "metadata",
     "naming",
     "peer",
+    "reflection",
+    "reflection/grpc_reflection_v1alpha",
     "resolver",
     "resolver/dns",
     "resolver/passthrough",
@@ -100,6 +104,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "475bdc613c266ff7effccf9b63ab2aca38f7ff25171fdda77371a9938db7fdbb"
+  inputs-digest = "70af3f1761bebb98fce3cd687c2235a450195f056f8afdd49fcb67f1de740647"
   solver-name = "gps-cdcl"
   solver-version = 1
