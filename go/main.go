@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/riquellopes/vacations/protons"
+	"github.com/riquellopes/vacations/go/protons"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
