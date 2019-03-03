@@ -36,29 +36,6 @@ func server() {
 	grpcServer.Serve(server)
 }
 
-func client() {
-	dial, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
-
-	if err != nil {
-		log.Fatalf("Error to connect %v", err)
-	}
-
-	defer dial.Close()
-
-	client := protons.NewHenriqueVacationsClient(dial)
-
-	asking := &protons.HenriqueMessage{Msg: "When do you start your vacation?"}
-	r, err := client.WhenDoYouStartYourVacation(context.Background(), asking)
-
-	if err != nil {
-		log.Fatalf("Error to replay %v", err)
-	}
-
-	log.Printf("gRPC say: %s", r.GetMsg())
-}
-
 func main() {
 	go server()
-
-	client()
 }
