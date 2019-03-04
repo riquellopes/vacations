@@ -10,7 +10,7 @@ def client():
         client = VacationServiceStub(dial)
         response = client.WhenDoYouStartYourVacation(
             VacationRequest(name="Henrique Lopes"))
-    print("Response: " + response.message)
+    print("Response: " + response.reply)
 
 
 if __name__ == "__main__":
