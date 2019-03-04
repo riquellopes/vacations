@@ -2,10 +2,14 @@ syntax = "proto2";
 
 package protons;
 
-service HenriqueVacations {
-    rpc WhenDoYouStartYourVacation(HenriqueMessage) returns (HenriqueMessage){}
+service VacationService {
+    rpc WhenDoYouStartYourVacation(VacationRequest) returns (VacationResponse){}
 }
 
-message HenriqueMessage {
-    string msg = 1;
+message VacationRequest {
+    required string name = 1;
+}
+
+message VacationResponse {
+    required string reply = 1;
 }
