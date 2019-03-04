@@ -15,9 +15,10 @@ type Server struct {
 }
 
 // WhenDoYouStartYourVacation -
-func (s *Server) WhenDoYouStartYourVacation(c context.Context, req *protons.HenriqueMessage) (*protons.HenriqueMessage, error) {
-	log.Printf("Asking from gRPC: %s", req.GetMsg())
-	return &protons.HenriqueMessage{Msg: "01/03/2019"}, nil
+func (s *Server) WhenDoYouStartYourVacation(c context.Context, req *protons.VacationRequest) (*protons.VacationResponse, error) {
+	log.Printf("Asking from gRPC: %s", req.GetName())
+	reply := "Will be 03/07/2019."
+	return &protons.VacationResponse{Reply: &reply}, nil
 }
 
 func server() {
@@ -30,7 +31,7 @@ func server() {
 	defer server.Close()
 
 	grpcServer := grpc.NewServer()
-	protons.RegisterHenriqueVacationsServer(grpcServer, &Server{})
+	protons.RegisterVacationServiceServer(grpcServer, &Server{})
 
 	reflection.Register(grpcServer)
 	grpcServer.Serve(server)
